@@ -38,6 +38,7 @@ LOCAL_RESOURCE_DIR := $(addprefix $(LOCAL_PATH)/, $(res_dirs)) \
     $(support_library_root_dir)/v7/recyclerview/res \
     $(support_library_root_dir)/v7/appcompat/res \
     $(support_library_root_dir)/design/res
+LOCAL_ASSET_DIR += $(LOCAL_PATH)/assets
 
 LOCAL_JAVA_LIBRARIES := telephony-common \
                         telephony-ext \
@@ -53,6 +54,8 @@ LOCAL_AAPT_FLAGS := \
     --extra-packages com.android.contacts.common \
     --extra-packages com.android.phone.common
 
+LOCAL_JAVA_LIBRARIES := org.apache.http.legacy
+
 LOCAL_STATIC_JAVA_LIBRARIES := \
     android-common \
     android-support-v13 \
@@ -64,9 +67,9 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     com.android.vcard \
     guava \
     libphonenumber \
+    telephony-common \
     ims-ext-common \
     phonebook_wrapper \
-    telephony-common
 
 LOCAL_PACKAGE_NAME := Dialer
 LOCAL_CERTIFICATE := shared
