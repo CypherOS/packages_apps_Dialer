@@ -78,6 +78,8 @@
         <meta-data android:name="com.google.android.backup.api_key"
             android:value="AEdPqrEAAAAIBXgtCEKQ6W0PXVnW-ZVia2KmlV2AxsTw3GjAeQ" />
 
+        <uses-library android:name="org.apache.http.legacy" />
+
         <!-- The entrance point for Phone UI.
              stateAlwaysHidden is set to suppress keyboard show up on
              dialpad screen. -->
@@ -388,6 +390,11 @@
             android:multiprocess="false"
             />
 
+		<provider android:name="com.android.dialer.lookup.LookupProvider"
+                  android:authorities="com.android.dialer.provider"
+                  android:exported="false"
+                  android:multiprocess="false" />
+			
         <activity android:name=".SpeedDialListActivity"
             android:theme="@style/SpeedDialtactsTheme"
             android:label="@string/speed_dial_settings" >
