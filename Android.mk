@@ -40,8 +40,7 @@ LOCAL_RESOURCE_DIR := $(addprefix $(LOCAL_PATH)/, $(res_dirs)) \
     $(support_library_root_dir)/design/res
 LOCAL_ASSET_DIR += $(LOCAL_PATH)/assets
 
-LOCAL_JAVA_LIBRARIES := org.apache.http.legacy \
-                        telephony-common \
+LOCAL_JAVA_LIBRARIES := telephony-common \
                         telephony-ext \
                         ims-common
 
