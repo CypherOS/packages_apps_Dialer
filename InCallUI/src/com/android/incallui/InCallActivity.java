@@ -184,6 +184,11 @@ public class InCallActivity extends TransactionSafeActivity implements FragmentD
                 | WindowManager.LayoutParams.FLAG_IGNORE_CHEEK_PRESSES;
 
         getWindow().addFlags(flags);
+		
+		  // Enable Sustained Performance Mode
+        getWindow().setSustainedPerformanceMode(true);
+
+<<<<<<< HEAD
         boolean isDsdaEnabled = CallList.getInstance().isDsdaEnabled();
         if (isDsdaEnabled) {
             requestWindowFeature(Window.FEATURE_ACTION_BAR);
@@ -197,6 +202,18 @@ public class InCallActivity extends TransactionSafeActivity implements FragmentD
                 getActionBar().setDisplayShowTitleEnabled(true);
                 getActionBar().hide();
             }
+=======
+
+        // Enable Sustained Performance Mode
+        getWindow().setSustainedPerformanceMode(true);
+
+        // Setup action bar for the conference call manager.
+        requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
+        if (getActionBar() != null) {
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+            getActionBar().setDisplayShowTitleEnabled(true);
+            getActionBar().hide();
+>>>>>>> f48a62a33... Dialer: InCallUI: Enable Sustained Performance Mode
         }
 
         // TODO(klp): Do we need to add this back when prox sensor is not available?
