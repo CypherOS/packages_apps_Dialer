@@ -466,10 +466,7 @@ public class DialerDatabaseHelper extends SQLiteOpenHelper {
             Log.e(TAG, "Malformed database version..recreating database");
         }
 
-        int base = 70000;
-        db.execSQL("DROP TABLE IF EXISTS " + "cached_number_contacts");
-        if (oldVersion <= (DATABASE_VERSION - base)
-                || (oldVersion >= base && oldVersion < DATABASE_VERSION)) {
+        if (oldVersion < 4) {
             setupTables(db);
             return;
         }
