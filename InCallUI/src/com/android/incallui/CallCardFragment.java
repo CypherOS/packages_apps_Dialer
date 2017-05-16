@@ -608,8 +608,7 @@ public class CallCardFragment extends BaseFragment<CallCardPresenter, CallCardPr
      */
     @Override
     public void setPrimary(String number, String name, boolean nameIsNumber, String label,
-            Drawable photo, boolean isSipCall, boolean isForwarded,
-            boolean isContactPhotoShown, boolean isWorkCall) {
+            Drawable photo, boolean isSipCall, boolean isContactPhotoShown, boolean isWorkCall) {
         Log.d(this, "Setting primary call");
         // set the name field.
         setPrimaryName(name, nameIsNumber);
@@ -627,7 +626,7 @@ public class CallCardFragment extends BaseFragment<CallCardPresenter, CallCardPr
         // Set the label (Mobile, Work, etc)
         setPrimaryLabel(label);
 
-        showCallType(isSipCall, isForwarded);
+        showInternetCallLabel(isSipCall);
 
         setDrawableToImageViews(photo);
         showImageView(mPhotoLarge, isContactPhotoShown);
@@ -770,12 +769,11 @@ public class CallCardFragment extends BaseFragment<CallCardPresenter, CallCardPr
             String gatewayNumber,
             boolean isWifi,
             boolean isConference,
-            boolean isWaitingForRemoteSide,
             boolean isWorkCall) {
         boolean isGatewayCall = !TextUtils.isEmpty(gatewayNumber);
         CallStateLabel callStateLabel = getCallStateLabelFromState(state, videoState,
                 sessionModificationState, disconnectCause, connectionLabel, isGatewayCall, isWifi,
-                isConference, isWaitingForRemoteSide, isWorkCall);
+                isConference, isWorkCall);
 
         Log.v(this, "setCallState " + callStateLabel.getCallStateLabel());
         Log.v(this, "AutoDismiss " + callStateLabel.isAutoDismissing());
@@ -959,13 +957,12 @@ public class CallCardFragment extends BaseFragment<CallCardPresenter, CallCardPr
         return mIsAnimating;
     }
 
-    private void showCallType(boolean isSipCall, boolean isForwarded) {
-        if (isSipCall) {
+    private void showInternetCallLabel(boolean show) {
+        if (show) {
+            final String label = getView().getContext().getString(
+                    R.string.incall_call_type_label_sip);
             mCallTypeLabel.setVisibility(View.VISIBLE);
-            mCallTypeLabel.setText(R.string.incall_call_type_label_sip);
-        } else if (isForwarded) {
-            mCallTypeLabel.setVisibility(View.VISIBLE);
-            mCallTypeLabel.setText(R.string.incall_call_type_label_forwarded);
+            mCallTypeLabel.setText(label);
         } else {
             mCallTypeLabel.setVisibility(View.GONE);
         }
@@ -1084,8 +1081,7 @@ public class CallCardFragment extends BaseFragment<CallCardPresenter, CallCardPr
      */
     private CallStateLabel getCallStateLabelFromState(int state, int videoState,
             int sessionModificationState, DisconnectCause disconnectCause, String label,
-            boolean isGatewayCall, boolean isWifi, boolean isConference,
-            boolean isWaitingForRemoteSide, boolean isWorkCall) {
+            boolean isGatewayCall, boolean isWifi, boolean isConference, boolean isWorkCall) {
         final Context context = getView().getContext();
         CharSequence callStateLabel = null;  // Label to display as part of the call banner
 
@@ -1116,17 +1112,11 @@ public class CallCardFragment extends BaseFragment<CallCardPresenter, CallCardPr
                     callStateLabel = context.getString(R.string.card_title_video_call_requesting);
                 } else if (VideoUtils.isVideoCall(videoState)) {
                     callStateLabel = context.getString(R.string.card_title_video_call);
-                } else if (isWaitingForRemoteSide) {
-                    callStateLabel = context.getString(R.string.card_title_waiting_call);
                 }
 
                 if ((isAccount || isWifi || isConference) && hasSuggestedLabel) {
-                    if (callStateLabel != null) {
-                        callStateLabel = context.getString(R.string.card_title_active_via_template,
-                                callStateLabel, label);
-                    } else {
-                        callStateLabel = label;
-                    }
+                   label += (callStateLabel != null) ? (" " + callStateLabel) : "";
+                   callStateLabel = label;
                 }
                 break;
             case Call.State.ONHOLD:
@@ -1135,12 +1125,7 @@ public class CallCardFragment extends BaseFragment<CallCardPresenter, CallCardPr
             case Call.State.CONNECTING:
             case Call.State.DIALING:
                 if (hasSuggestedLabel && !isWifi) {
-                    int resId = isWaitingForRemoteSide
-                            ? R.string.calling_via_waiting_template
-                            : R.string.calling_via_template;
-                    callStateLabel = context.getString(resId, label);
-                } else if (isWaitingForRemoteSide) {
-                    callStateLabel = context.getString(R.string.card_title_dialing_waiting);
+                    callStateLabel = context.getString(R.string.calling_via_template, label);
                 } else {
                     callStateLabel = context.getString(R.string.card_title_dialing);
                 }
