@@ -83,4 +83,7 @@
   <color name="voicemail_donation_promo_positive_button_text_color">#FF2A56C6</color>
   <color name="voicemail_donation_promo_negative_button_text_color">#FF757575</color>
 
+  <!-- Launcher icon background color -->
+  <color name="ic_background">#ff2a56c6</color>
+
 </resources>
