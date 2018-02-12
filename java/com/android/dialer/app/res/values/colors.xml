@@ -100,4 +100,7 @@
   <color name="call_detail_footer_text_color">#616161</color>
   <color name="call_detail_footer_icon_tint">@color/call_detail_footer_text_color</color>
 
+  <!-- Launcher icon background color -->
+  <color name="ic_background">#ff2a56c6</color>
+
 </resources>
