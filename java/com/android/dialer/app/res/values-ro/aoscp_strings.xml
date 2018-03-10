@@ -17,4 +17,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- In-call vibrate options -->
+  <string name="incall_vibration_category_title">Vibrare în apel</string>
+  <string name="incall_vibrate_outgoing_title">Vibrează la răspuns apel</string>
+  <string name="incall_vibrate_call_waiting_title">Vibrează la apel în așteptare</string>
+  <string name="incall_vibrate_hangup_title">Vibrează la închiderea apelului</string>
+  <string name="incall_vibrate_50_title">Vibrează la fiecare minut</string>
+  <string name="incall_vibrate_50_summary">Vibrează la 50 de secunde ale fiecărui minut în timpul apelurilor de ieșire</string>
 </resources>
