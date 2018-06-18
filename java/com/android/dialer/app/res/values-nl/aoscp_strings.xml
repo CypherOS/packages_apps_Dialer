@@ -17,6 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- In-call vibrate options -->
+  <string name="incall_vibration_category_title">Trillen tijdens gesprek</string>
   <string name="incall_vibrate_outgoing_title">Trillen op antwoord</string>
   <string name="incall_vibrate_call_waiting_title">Trillen op wisselgesprek</string>
   <string name="incall_vibrate_hangup_title">Trillen op ophangen</string>
