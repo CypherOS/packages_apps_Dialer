@@ -17,4 +17,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- In-call vibrate options -->
+  <string name="incall_vibration_category_title">Vibrácie počas hovoru</string>
+  <string name="incall_vibrate_outgoing_title">Zavibrovať po zdvihnutí</string>
+  <string name="incall_vibrate_call_waiting_title">Vibrovať pri čakajúcom hovore</string>
+  <string name="incall_vibrate_hangup_title">Zavibrovať po zavesení</string>
+  <string name="incall_vibrate_50_title">Vibrovať každú minútu</string>
+  <string name="incall_vibrate_50_summary">Vibrovať každú 50. sekundu pri odchádzajúcom hovore</string>
 </resources>

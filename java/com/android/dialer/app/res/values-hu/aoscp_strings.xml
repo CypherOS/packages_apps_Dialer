@@ -17,4 +17,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- In-call vibrate options -->
+  <string name="incall_vibration_category_title">Hívás közbeni rezgés</string>
+  <string name="incall_vibrate_outgoing_title">Rezgés fogadáskor</string>
+  <string name="incall_vibrate_call_waiting_title">Rezgés várakoztatáskor</string>
+  <string name="incall_vibrate_hangup_title">Rezgés letételkor</string>
+  <string name="incall_vibrate_50_title">Rezgés percenként</string>
+  <string name="incall_vibrate_50_summary">Minden perc 50. másodpercében rezeg a kimenő hívások során</string>
 </resources>

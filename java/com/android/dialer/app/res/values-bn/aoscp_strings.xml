@@ -17,10 +17,4 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- In-call vibrate options -->
-  <string name="incall_vibration_category_title">来电振动</string>
-  <string name="incall_vibrate_outgoing_title">接通时振动</string>
-  <string name="incall_vibrate_call_waiting_title">呼叫等待时振动</string>
-  <string name="incall_vibrate_hangup_title">通话结束时振动</string>
-  <string name="incall_vibrate_50_title">每分钟振动</string>
-  <string name="incall_vibrate_50_summary">呼出通话达到每分钟的 50 秒时振动</string>
 </resources>

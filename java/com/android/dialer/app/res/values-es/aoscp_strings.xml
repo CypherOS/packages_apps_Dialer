@@ -17,10 +17,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- In-call vibrate options -->
-  <string name="incall_vibration_category_title">Vibración en llamadas</string>
-  <string name="incall_vibrate_outgoing_title">Vibrar al contestar</string>
-  <string name="incall_vibrate_call_waiting_title">Vibrar en llamada en espera</string>
-  <string name="incall_vibrate_hangup_title">Vibrar al cortar</string>
-  <string name="incall_vibrate_50_title">Vibrar cada minuto</string>
-  <string name="incall_vibrate_50_summary">Vibrar al alcanzar los 50 segundos de cada minuto en llamadas salientes</string>
+  <string name="incall_vibration_category_title">Vibrationer i samtal</string>
+  <string name="incall_vibrate_outgoing_title">Vibrera vid svar</string>
+  <string name="incall_vibrate_call_waiting_title">Vibrera vid samtal väntar</string>
+  <string name="incall_vibrate_hangup_title">Vibrera på lägg på</string>
+  <string name="incall_vibrate_50_title">Vibrera varje minut</string>
+  <string name="incall_vibrate_50_summary">Vibrera vid den 50:e sekunden varje minut under utgående samtal</string>
 </resources>
